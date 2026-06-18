@@ -4,154 +4,344 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>2026 电视淘宝介绍</title>
-    <!-- Reveal.js Core -->
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
-    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
-    <!-- Custom Theme Overrides for "Tech/Business" Feel -->
     <style>
         :root {
-            --accent-color: #F9A825; /* Gold/Orange */
-            --text-color: #E0E0E0;
-            --bg-color: #0F1225;
+            --primary: #1E88E5;
+            --secondary: #FF6F00;
+            --accent: #26C6DA;
+            --bg-dark: #0D1B2A;
+            --bg-card: rgba(30, 136, 229, 0.1);
+            --text-light: #E0E6ED;
+            --text-muted: #8892A4;
         }
         .reveal-viewport {
-            background: linear-gradient(135deg, #0F1225 0%, #1A1025 100%);
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1B2838 100%);
         }
-        .reveal h1, .reveal h2, .reveal h3 {
-            text-transform: none;
+        .reveal {
             font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            color: #FFFFFF;
+        }
+        .reveal .slides {
+            text-align: left;
+        }
+        .reveal .slides section {
+            padding: 40px 60px;
+        }
+        .reveal h1 {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 0.5em;
         }
         .reveal h2 {
-            color: var(--accent-color);
-            font-size: 2.2em;
-            margin-bottom: 40px;
+            font-size: 1.8em;
+            color: var(--primary);
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .reveal h3 {
+            font-size: 1.2em;
+            color: var(--secondary);
+            margin-bottom: 15px;
         }
         .reveal p, .reveal li {
-            font-size: 0.7em;
+            font-size: 0.75em;
             line-height: 1.6;
-            color: var(--text-color);
+            color: var(--text-light);
         }
-        .reveal .accent {
-            color: var(--accent-color);
+        .reveal ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .reveal ul li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .reveal ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        .highlight {
+            color: var(--secondary);
             font-weight: bold;
         }
-        /* Card Layout for Data */
-        .card-grid {
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
-        .card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(30, 136, 229, 0.3);
+            border-radius: 8px;
             padding: 20px;
             text-align: center;
         }
-        .card .number {
-            font-size: 1.8em;
-            color: var(--accent-color);
+        .stat-num {
+            font-size: 2.2em;
+            color: var(--secondary);
             font-weight: bold;
+            display: block;
             margin-bottom: 5px;
-            display: block;
         }
-        .card .label {
-            font-size: 0.6em;
-            color: #aaa;
+        .stat-label {
+            font-size: 0.65em;
+            color: var(--text-muted);
         }
-        .reveal ul {
-            display: block;
-            margin-left: 1em;
-            list-style: none;
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
-        .reveal ul li::before {
-            content: "";
-            color: var(--accent-color);
-            margin-right: 10px;
+        .timeline {
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        .timeline-item {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .timeline-year {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        .timeline-text {
+            font-size: 0.7em;
+            color: var(--text-light);
+            margin-top: 3px;
+        }
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .brand-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(30, 136, 229, 0.2);
+            border-radius: 6px;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 0.7em;
+            color: var(--text-light);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(30, 136, 229, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .feature-card h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 0.85em;
+        }
+        .feature-card p {
+            font-size: 0.65em;
+            color: var(--text-muted);
+        }
+        .data-source {
+            position: absolute;
+            bottom: 20px;
+            right: 60px;
+            font-size: 0.55em;
+            color: var(--text-muted);
+        }
+        .title-slide {
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title-slide h1 {
+            font-size: 3em;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .title-slide .subtitle {
+            font-size: 1.2em;
+            color: var(--secondary);
+            margin-top: 10px;
+        }
+        .section-title {
+            text-align: center !important;
+        }
+        .section-title h2 {
+            font-size: 2.5em;
+            border: none;
+            color: var(--primary);
+        }
+        .progress span {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        .controls {
+            color: var(--primary) !important;
         }
     </style>
 </head>
 <body>
     <div class="reveal">
         <div class="slides">
-            
             <!-- Slide 1: Title -->
-            <section>
-                <div style="text-align: center;">
-                    <p style="font-size: 0.8em; color: var(--accent-color); letter-spacing: 2px; margin-bottom: 20px;">PRESENTATION</p>
-                    <h1>2026 电视淘宝介绍</h1>
-                    <h3>开启大屏电商新时代</h3>
-                    <div style="margin-top: 40px; display: inline-block; border: 1px solid var(--accent-color); padding: 10px 30px; border-radius: 30px; font-size: 0.7em; color: var(--accent-color);">
-                        2026 电视淘宝
-                    </div>
-                </div>
+            <section class="title-slide">
+                <h1>2026 电视淘宝介绍</h1>
+                <div class="subtitle">开启大屏电商新时代</div>
             </section>
 
-            <!-- Slide 2: Overview -->
-            <section>
-                <h2>电视淘宝：开启大屏电商新时代</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <span class="number">4 亿+</span>
-                        <span class="label">覆盖家庭用户</span>
-                    </div>
-                    <div class="card">
-                        <span class="number">1.3 亿+</span>
-                        <span class="label">单月活跃家庭</span>
-                    </div>
-                    <div class="card">
-                        <span class="number">2500+</span>
-                        <span class="label">服务品牌数</span>
-                    </div>
-                </div>
-                <p style="margin-top: 30px; font-size: 0.7em; color: #aaa;">
-                    构建 OTT"流量 + 内容 + 电商"闭环生态，实现<span class="accent">“五大一小”全域覆盖</span>。
-                </p>
+            <!-- Slide 2: Section -->
+            <section class="section-title">
+                <h2>PART 01<br>电视淘宝介绍</h2>
             </section>
 
-            <!-- Slide 3: User Scale -->
+            <!-- Slide 3: OTT User Scale -->
             <section>
                 <h2>OTT 用户规模快速增长</h2>
-                <div style="display: flex; justify-content: space-around; margin-top: 30px;">
-                    <div style="text-align: center;">
-                        <span style="font-size: 2em; color: var(--accent-color);">3.4 亿</span>
-                        <p>智能电视激活用户</p>
+                <p class="highlight">大屏仍是沉浸式家庭体验无可替代的选择</p>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-num">3.4 亿</span>
+                        <span class="stat-label">智能电视激活用户</span>
                     </div>
-                    <div style="text-align: center;">
-                        <span style="font-size: 2em; color: var(--accent-color);">5.5 小时</span>
-                        <p>家庭日户均开机时长</p>
+                    <div class="stat-box">
+                        <span class="stat-num">1.76 亿</span>
+                        <span class="stat-label">日户均开机日活</span>
                     </div>
-                    <div style="text-align: center;">
-                        <span style="font-size: 2em; color: var(--accent-color);">66%</span>
-                        <p>OTT 春节日均开机率</p>
+                    <div class="stat-box">
+                        <span class="stat-num">5.5 小时</span>
+                        <span class="stat-label">家庭日户均开机时长</span>
                     </div>
                 </div>
-                <p style="margin-top: 30px;">
-                    大屏仍是沉浸式家庭体验无可替代的选择。<br>
-                    2026 春晚，OTT 触达已正式超越 CCTV，覆盖 <span class="accent">6.8 亿人</span>。
+                <p style="margin-top: 15px;">
+                    <span class="highlight">2026 春晚，OTT 触达已正式超越 CCTV</span><br>
+                    OTT 春节日均开机率 66%，覆盖 6.8 亿人<br>
+                    一户家庭约有 2.6 名用户，OTT 覆盖用户数近 10 亿
+                </p>
+                <div class="data-source">数据来源：秒针，勾正科技，互娱数字</div>
+            </section>
+
+            <!-- Slide 4: TV Taobao Overview -->
+            <section>
+                <h2>电视淘宝：开启大屏电商新时代</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>核心成果</h3>
+                        <ul>
+                            <li>用户量突破 4 亿</li>
+                            <li>单月活跃家庭用户高达 1.3 亿+</li>
+                            <li>已服务超 2500+ 品牌</li>
+                            <li>构建 OTT"流量 + 内容 + 电商"闭环生态</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>发展历程</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">2016</div>
+                                <div class="timeline-text">电视淘宝全面布局 OTT</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2018</div>
+                                <div class="timeline-text">率先推出"AI 语音购物"</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2019</div>
+                                <div class="timeline-text">上线首个 OTT 品效营销产品"屏销宝"</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2021</div>
+                                <div class="timeline-text">与"五大一小"达成 SDK 全面合作</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-text">上线全国唯一 OTT 直播电商业务</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2025</div>
+                                <div class="timeline-text">携手阿里、小米和海信，全面爆发</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Full Scene Coverage -->
+            <section>
+                <h2>覆盖智能电视全场景，直达成交场域</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>遥控器 OK 键直达</h4>
+                        <p>按遥控器 OK 键直达店铺页或商品页</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>全场景购物链路</h4>
+                        <p>「开机 - 看剧 - 购物」所有点位支持电视端购物后链路承接</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>开机广告链路</h4>
+                        <p>开机广告 - 购买链路，所见即所买</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>电淘直播链路</h4>
+                        <p>直播带货模式，边看边买，即时转化</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: Scene Penetration -->
+            <section>
+                <h2>全面加深家庭场景渗透广度和深度</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-num">遥控器</span>
+                        <span class="stat-label">一键直达</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">首屏</span>
+                        <span class="stat-label">TAB 页霸屏</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">全场景</span>
+                        <span class="stat-label">深度覆盖</span>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;">
+                    从开机到看剧，从购物到直播，电视淘宝全面覆盖家庭娱乐消费场景，<br>
+                    通过<span class="highlight">遥控器一键直达</span>和<span class="highlight">首屏霸屏</span>，实现深度渗透。
                 </p>
             </section>
 
-            <!-- Slide 4: Features -->
+            <!-- Slide 7: Live Streaming -->
             <section>
-                <h2>全面加深家庭场景渗透</h2>
-                <ul style="font-size: 0.8em;">
-                    <li style="margin-bottom: 15px;"><span class="accent">按遥控器 OK 键：</span> 直达店铺页或商品页，缩短购买链路。</li>
-                    <li style="margin-bottom: 15px;"><span class="accent">开机广告 - 购买链路：</span> 开机即达，所见即所买。</li>
-                    <li style="margin-bottom: 15px;"><span class="accent">电淘直播：</span> 明星、总裁、达人直播间全覆盖。</li>
-                    <li style="margin-bottom: 15px;"><span class="accent">数据回流：</span> 生意参谋、品牌数据引擎，助力二次营销。</li>
-                </ul>
-            </section>
-
-            <!-- Slide 5: Ecosystem -->
-            <section>
-                <h2>构建智慧家庭消费生态</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left;">
+                <h2>「电视直播电商」类型多样 覆盖所有主流电视机</h2>
+                <div class="two-col">
                     <div>
-                        <h4 style="color: var(--accent-color);">直播电商类型</h4>
+                        <h3>直播类型</h3>
                         <ul>
                             <li>明星直播间</li>
                             <li>总裁来了直播间</li>
@@ -160,24 +350,269 @@
                         </ul>
                     </div>
                     <div>
-                        <h4 style="color: var(--accent-color);">覆盖主流厂商</h4>
+                        <h3>覆盖品牌</h3>
+                        <div class="brand-grid">
+                            <div class="brand-item">小米</div>
+                            <div class="brand-item">海信</div>
+                            <div class="brand-item">康佳</div>
+                            <div class="brand-item">长虹</div>
+                            <div class="brand-item">TCL</div>
+                            <div class="brand-item">创维</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">
+                    电淘直播已覆盖全国所有主流电视机，自动启播带来极致体验，<br>
+                    配合官方补贴活动，助力品牌<span class="highlight">大幅提高成交转化</span>！
+                </p>
+            </section>
+
+            <!-- Slide 8: User Profile -->
+            <section>
+                <h2>深耕家庭场景优质人群，打造淘系生态新增量</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>人群特征</h3>
                         <ul>
-                            <li>小米</li>
-                            <li>海信</li>
-                            <li>康佳</li>
-                            <li>长虹 / TCL / 创维</li>
+                            <li>新一线和三四线城市电淘好于大盘</li>
+                            <li>25 岁 -39 岁人群电淘好于大盘</li>
+                            <li>已婚已育人群电淘好于大盘</li>
+                            <li>覆盖 60% 的淘宝 88VIP</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>核心数据</h3>
+                        <div class="stat-box" style="margin-bottom: 10px;">
+                            <span class="stat-num">4 亿+</span>
+                            <span class="stat-label">覆盖用户数</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">39.5%</span>
+                            <span class="stat-label">电淘活跃用户在手淘属于低活用户</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 10px;">
+                    通过 OTT 覆盖手淘与 PC 难以触达的家庭消费人群，<br>
+                    有效拓展<span class="highlight">淘系增量用户池</span>
+                </p>
+            </section>
+
+            <!-- Slide 9: Data Tags -->
+            <section>
+                <h2>拥有 PB 级别数据和海量人群标签</h2>
+                <p class="highlight">多维度精准识别 OTT 用户</p>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-num">PB 级</span>
+                        <span class="stat-label">数据规模</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">海量</span>
+                        <span class="stat-label">人群标签</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">多维度</span>
+                        <span class="stat-label">精准识别</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">
+                    全网最完善的 OTT 用户人群标签和消费行为数据，<br>
+                    助力品牌实现<span class="highlight">精准营销和高效转化</span>
+                </p>
+            </section>
+
+            <!-- Slide 10: Data Reflow -->
+            <section>
+                <h2>数据可回流、可量化，助力生意持续增长</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>生意参谋</h4>
+                        <p>提升店铺数据，闭环数据回流到生意参谋</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>屏销宝后台</h4>
+                        <p>大屏数据全景展示，数据大盘、人群画像、竞品竞店</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>品牌数据引擎</h4>
+                        <p>人群回流品牌数据引擎，助力二次营销</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>电视派后台</h4>
+                        <p>TA 人群数据结案，投放信息沉淀 TTTDESK 后台</p>
+                    </div>
+                </div>
+                <p style="margin-top: 10px;">
+                    数据回流验证投放效果，提升店铺数据，增加人群资产，<span class="highlight">助力品牌运营</span>
+                </p>
+            </section>
+
+            <!-- Slide 11: Benefits -->
+            <section>
+                <h2>权益叠加：双端权益助力销售</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>大屏专属权益</h3>
+                        <ul>
+                            <li>电淘大屏直播间专属优惠</li>
+                            <li>限时秒杀 1 折起</li>
+                            <li>跨店满减</li>
+                            <li>下单购物返利</li>
+                            <li>看视频领现金</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>大小屏权益叠加</h3>
+                        <ul>
+                            <li>可叠加手淘权益，满 300 减 100</li>
+                            <li>店铺/商品专享补贴</li>
+                            <li>福利宝</li>
+                            <li>天天领现金</li>
+                            <li>心愿城</li>
+                            <li>电淘省钱卡</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Slide 6: Ending -->
-            <section>
-                <h1 style="font-size: 3em;">感谢观看</h1>
-                <h3 style="color: var(--accent-color);">2026 电视淘宝</h3>
-                <p>开启大屏电商新时代</p>
+            <!-- Slide 12: User Recognition -->
+            <section class="title-slide">
+                <h2>广受 C 端用户认可的家庭购物搭子！</h2>
+                <p style="font-size: 1em; color: var(--secondary); margin-top: 20px;">
+                    电视淘宝已成为家庭用户信赖的购物平台
+                </p>
+                <p style="margin-top: 10px;">
+                    覆盖 4 亿 + 家庭用户，单月活跃家庭用户高达 1.3 亿+
+                </p>
             </section>
 
+            <!-- Slide 13: Section -->
+            <section class="section-title">
+                <h2>PART 02<br>电视淘宝广告产品</h2>
+            </section>
+
+            <!-- Slide 14: Ad Products -->
+            <section>
+                <h2>电视淘宝广告产品体系</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>开机广告</h4>
+                        <p>开机即触达，全屏曝光，品牌认知度提升</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>贴片广告</h4>
+                        <p>视频内容中插播，精准触达目标用户</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>购物触点</h4>
+                        <p>多场景购物入口，提升转化率</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>数据洞察</h4>
+                        <p>全链路数据追踪，精准投放优化</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Ad Effect -->
+            <section>
+                <h2>广告投放效果</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-num">2500+</span>
+                        <span class="stat-label">服务品牌数</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">4 亿+</span>
+                        <span class="stat-label">覆盖家庭用户</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">1.3 亿+</span>
+                        <span class="stat-label">月活跃家庭用户</span>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;">
+                    通过大数据精准定向，实现高效投放和转化，<br>
+                    帮助品牌在<span class="highlight">家庭场景中获得最大曝光和回报</span>
+                </p>
+            </section>
+
+            <!-- Slide 16: Core Advantages -->
+            <section>
+                <h2>核心优势总结</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>平台优势</h3>
+                        <ul>
+                            <li>阿里巴巴旗下智能电视互动购物平台</li>
+                            <li>覆盖 4 亿 + 家庭用户</li>
+                            <li>单月活跃家庭用户高达 1.3 亿+</li>
+                            <li>全网最完善的 OTT 用户数据</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>产品优势</h3>
+                        <ul>
+                            <li>"流量 + 内容 + 电商"闭环生态</li>
+                            <li>多维度精准识别 OTT 用户</li>
+                            <li>数据可回流、可量化</li>
+                            <li>双端权益叠加助力销售</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 17: Partner Brands -->
+            <section>
+                <h2>合作品牌</h2>
+                <div class="brand-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="brand-item">小米</div>
+                    <div class="brand-item">海信</div>
+                    <div class="brand-item">康佳</div>
+                    <div class="brand-item">长虹</div>
+                    <div class="brand-item">TCL</div>
+                    <div class="brand-item">创维</div>
+                    <div class="brand-item">华为</div>
+                    <div class="brand-item">荣耀</div>
+                </div>
+                <p style="margin-top: 20px; text-align: center;">
+                    已服务超<span class="highlight">2500+</span>品牌，持续拓展中...
+                </p>
+            </section>
+
+            <!-- Slide 18: Future Outlook -->
+            <section>
+                <h2>未来展望</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-text">持续深化大屏电商生态，拓展更多家庭场景</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2027</div>
+                        <div class="timeline-text">AI 技术深度融合，个性化推荐更精准</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2028+</div>
+                        <div class="timeline-text">构建智慧家庭消费新生态，引领行业发展</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 19: Contact -->
+            <section class="title-slide">
+                <h2>联系我们</h2>
+                <p style="font-size: 1em; color: var(--secondary);">电视淘宝</p>
+                <p>阿里巴巴旗下智能电视互动购物平台</p>
+                <p style="margin-top: 10px;">开启大屏电商新时代</p>
+            </section>
+
+            <!-- Slide 20: Thanks -->
+            <section class="title-slide">
+                <h1>感谢观看</h1>
+                <div class="subtitle">电视淘宝 · 开启大屏电商新时代</div>
+            </section>
         </div>
     </div>
 
@@ -192,9 +627,10 @@
             backgroundTransition: 'fade',
             width: 1280,
             height: 720,
-            margin: 0.1,
+            margin: 0.05,
             minScale: 0.2,
-            maxScale: 2.0
+            maxScale: 2.0,
+            center: true
         });
     </script>
 </body>
